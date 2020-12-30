@@ -10,7 +10,7 @@ var image []byte
 
 func init() {
   var err error
-  image, err = ioutil.ReadFile("./image.png")
+  image, err = ioutil.ReadFile("./YSSzd2RY_400x400.jpg")
   if err != nil {
     panic(err)
   }
@@ -32,6 +32,6 @@ func handlerImage(w http.ResponseWriter, r *http.Request) {
 func main() {
   http.HandleFunc("/", handlerHtml)
   http.HandleFunc("/image", handlerImage)
-  err := http.ListenAndServeTLS(":8080", "server.crt", "server.key", nil)
+  err := http.ListenAndServe(":8080", nil)
   fmt.Println(err)
 }
